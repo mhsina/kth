@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <if>#{shoppingManager.status}</if>
+            <to-view-id>/Shopping.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <if>#{shoppingManager.redirect}</if>
+            <to-view-id>/newAccount.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <if>#{shoppingManager.status2}</if>
+            <to-view-id>/AdminPage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/AdminPage.xhtml</from-view-id>
+        <navigation-case>
+            <if>#{!shoppingManager.status2}</if>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Shopping.xhtml</from-view-id>
+        <navigation-case>
+            <if>#{!shoppingManager.status}</if>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/newAccount.xhtml</from-view-id>
+        <navigation-case>
+            <if>#{accountManager.redirect}</if>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/newAccount.xhtml</from-view-id>
+        <navigation-case>
+            <if>#{accountManager.cancel}</if>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Shopping.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>redirectOutcome</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect>
+                <view-param>
+                    <name>entryName</name>
+                    <value>#{shoppingManager.signout}</value>
+                </view-param>
+            </redirect>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

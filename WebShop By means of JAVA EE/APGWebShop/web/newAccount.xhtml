@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Create a new account</title>
+    </head>
+    <body bgcolor="gray">
+        <h1>Please fulfil the form below to create a new account</h1>
+
+        <h3>New User Information!</h3>
+        <hr/>
+        <h:form>
+            <table border="3" cellspacing="1" align="center">
+                <tbody>
+                    <tr>
+                        <td>
+                            <f:view>
+                                <h:form>
+                                    <h3><h:outputText value="Create a new account if you don't have."/></h3>
+                                    <h:dataTable value="#{accountManager.strNewAccount}" var="userpass">
+                                        <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputLabel for="Username" value="Username: "/>
+                                                    <h:inputText value="#{accountManager.strUserName}"/>
+                                                </f:facet>
+                                        </h:column>
+                                    </h:dataTable>
+                                    <h:dataTable value="#{accountManager.strNewAccount}" var="userpass">
+                                        <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputLabel for="Password" value="Password: "/>
+                                                    <h:inputSecret value="#{accountManager.strPassword}"/>
+                                                </f:facet>
+                                        </h:column>
+                                    </h:dataTable>
+                                    <h:dataTable value="#{accountManager.strNewAccount}" var="userpass">
+                                        <h:column>
+                                                <f:facet name="header">
+                                                    <h:outputLabel for="COnfirmPassword" value="Confirm Password: "/>
+                                                    <h:inputSecret value="#{accountManager.strConfirmPassword}"/>
+                                                </f:facet>
+                                        </h:column>
+                                    </h:dataTable>
+                                    <h:dataTable value="#{accountManager.strNewAccount}" var="newAccount">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:commandButton value="Create new account" id="newAccount" action="#{accountManager.createNewAccount}"/>
+                                            </f:facet>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:commandButton value="Cancel" id="cancel" action="#{accountManager.setCancel}"/>
+                                            </f:facet>
+                                        </h:column>
+                                    </h:dataTable>
+                                </h:form>
+                            </f:view>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </h:form>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://java.sun.com/jsf/html">
+        <h:head>
+            <style type="text/css">body {
+                    background-color: #FFFFFF;
+                    font: 100%/2 arial, helvetica, sans-serif;
+                    margin: 0;
+                }
+            </style>
+            <title>Administrator Control Panel</title>
+        </h:head>
+        <h:body>
+            <center>
+
+                <h1>
+                    &nbsp;Admin Page</h1>
+            </center>
+        </h:body>
+        <h:form>
+
+            <table align="center" border="2">
+                <tr>
+                    <td></td>
+                    <td>
+                        <f:view>
+                            <h:form>
+
+                                <h:dataTable value="#{shoppingManager.items}" var="item">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Gnomename"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.gnomename}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Price"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.price}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Stock"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.stock}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </f:view>
+                    </td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td> Add  articles to inventory: &nbsp;&nbsp;</td>
+                    <td>  <h:outputLabel for="gnomeName" value="Gnome Name: "/></td>
+                    <td><h:inputText  id="gnomeName" value="#{shoppingManager.gnomeName}"/></td>
+
+                    <td>  <h:outputLabel for="gnomeNumber" value="Number: "/></td>
+                    <td><h:inputText  id="gnomeNumber" value="#{shoppingManager.gnomeNumber}" /></td>
+
+                    <td>  <h:outputLabel for="gnomePrice" value="Price: "/></td>
+                    <td><h:inputText id="gnomePrice" value="#{shoppingManager.gnomePrice}" /></td>
+                    <td>  <h:commandButton value="Add" action="#{shoppingManager.AddGnome}" /></td>
+                    <td><h:commandButton value="Update" action="#{shoppingManager.UpdateList}"/></td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td> Remove  articles from inventory: &nbsp;&nbsp;</td>
+                    <td>  <h:outputLabel for="gnomeName2" value="Gnome Name: "/></td>
+                    <td><h:inputText  id="gna" value="#{shoppingManager.gnomename2}"/></td>
+                    <td>  <h:commandButton value="Delete" action="#{shoppingManager.DeleteGnome}" /></td>
+
+                </tr>
+                <tr>
+                    <td> Ban User: &nbsp;&nbsp;</td>
+
+
+                    <td>
+                        <h:selectOneMenu value="#{shoppingManager.selectedUser}">
+                            <f:selectItems value="#{shoppingManager.users}" />
+                        </h:selectOneMenu>
+                    </td>
+                    <td>  <h:commandButton value="BanUser" action="#{shoppingManager.ban}"/></td>
+                    <td>  <h:commandButton value="UnBanUser" action="#{shoppingManager.unblock}"/></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h:commandButton value="LogOut" action="#{shoppingManager.logout}"/>
+                    </td>
+                </tr>
+
+            </table>
+        </h:form>
+
+
+    </html>
+</f:view>

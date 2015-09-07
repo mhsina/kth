@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <title>Shopping page</title>
+    </h:head>
+
+    <body bgcolor="gray">
+        <h:message for="shoppingManager.strUserName" styleClass="errorMsg"/>
+        <h:outputText value="Welcome #{shoppingManager.strUserName}, you are successfully login. "/>
+        <h:link outcome="redirectOutcome" value="Sign Out">
+            <f:param name="entryName" value="#{shoppingManager.signout}"/>
+        </h:link>
+        <h:form>
+            <table border="3" cellspacing="1" align="center">
+                <tbody>
+                    <tr>
+                        <td>
+                            <f:view>
+                                <h:form>
+                                    <h1><h:outputText value="Inventory"/></h1>
+                                    <h:dataTable value="#{shoppingManager.items}" var="item">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Gnomename"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.gnomename}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Price"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.price}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Stock"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.stock}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </h:form>
+                            </f:view>
+                        </td>
+                        <td>
+                            <f:view>
+                                <h:form>
+                                    <h1><h:outputText value="Basket"/></h1>
+                                    <h:dataTable value="#{shoppingManager.basket}" var="item">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.gnomename}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Price"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.price}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Number"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.stock}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                </h:form>
+                            </f:view>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:selectOneMenu value="#{shoppingManager.selectedGnome}">
+                                <f:selectItems value="#{shoppingManager.gnomes}" />
+                            </h:selectOneMenu>
+                            <h:inputText id="number" value="#{shoppingManager.gnomeNumber}" />
+                            <h:commandButton value="AddToBasket" action="#{shoppingManager.addtobasket}" />
+                        </td>
+                        <td>
+                            <h:outputText id="m" value="Total Price : "/>
+                            <h:outputText id="e" value="#{shoppingManager.totalPrice}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:commandButton value="CheckOut" action="#{shoppingManager.checkout}" />
+                            <h:outputText id="v" value="#{shoppingManager.message}"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </h:form>
+
+    </body>
+</html>
+

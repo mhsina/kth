@@ -1,0 +1,83 @@
+CHEAP COFFEE SIMULATION 
+
+Copyright © 2011 
+
+Sina Molazemhosseini (homh@kth.se)
+
+Default Numbers
+FOR RUNNING THE PROGRAM USE NETBEANS OR IF YOU WANT TO USE COMMAND PROMPT DO THIS:
+java xphone 98987 3600 100 200 10 0
+
+INTRODUCTION
+
+Our model represents a Distribute Event Simulation of a mobile network for a
+highway with xed length and a xed number of base stations. Passing vehicles
+can start phone calls throughout the highway. Each call encapsulates the time of
+the call, the speed of the vehicle, the duration of the call and the position of the
+vehicle from the start of the highway.  Each base station has a specic number
+of channels, some ordinary and some reserved that can be assigned to the cars
+nearest to them.  Base stations cover the highway monotonously.  They do not
+overlap and there’s no area that’s not being covered by a base station (where a
+base station’s territory ends, the adjacent base stations territory begins).
+Upon making a call, if there capacity of the base station is occupied with
+other calls, the call is blocked.  If a passing cars moves from the territory of a
+base station to the territory of the next base station, then the call must also
+be transferred to the new base station.  This event is called a handover.  If an
+already established call moves to a new base station territory but is unable to
+nd an empty channel on it, the call is considered as dropped.
+What we are trying to do here is to simulate the problem and try to change
+our variables so that we have the minimum amount of blocked calls or missed
+calls.
+
+• seed:  is the single seed of the simulation. All required seeds for di?erent streams of random
+numbers are derived from this seed.  Given an input, different execution of your simulator
+should produce exactly the same output.
+• length:  is the time length of each replication of the simulation.
+• replication:  is the number of replications.
+• warm-up:  is the warm-up period in seconds.
+• channel:  is the number of channels in each base-station.
+• reserved:  is the number of reserved channels for handovers.
+
+
+SYSTEM REUIREMENTS
+
+OS Supported:
+•Windows XP/Vista/7/Linux/Mac OS
+
+Hardware Requirements:
+•Intel Pentium II 350MHz or above, or any Athlon
+•64 MB RAM or above
+
+INSTALLATION PREREQUISITES
+
+In order to use this product you must have a
+preferably updated version of Java installed on your machine.  You can obtain
+Java by visiting the following URL: www.java.com/getjava/ This product is a
+platform free application and the users may run it under any operating system
+(Windows, Macintosh, Linux, etc). 
+
+The projects works best if used with Netbeans IDE 6.9.1. The arguments needed to 
+run the project is already provided in the “Configuration Menu” of the project.
+
+FILES
+
+The source folder contains the following classes:
+* BtsStatus.java
+* Event.java
+* Arrival.java
+* RandomNumberGenerator.java
+* RandomNumberGeneratorG22.java
+* Xphone.java
+
+DIRECTIONS
+
+The user may extract the folder and use the application in any
+desired directory.  There are no specific locations needed to install and use the
+product. However the package content may not be manipulated by the users.
+Otherwise the application may face run-time difficulties.
+Usage License: You are completely free to use the source code and features
+of this product in any commercial or non-commercial format.  You may NOT
+sell or give away any files found in this package without permission.
+You are free (and encouraged) to make your own interpretations and create a
+new open-source version of the product.  You are free to redistribute your own
+version as you wish.

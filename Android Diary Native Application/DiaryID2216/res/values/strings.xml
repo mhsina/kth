@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DiaryID2216Activity!</string>
+    <string name="app_name">DiaryID2216</string>
+	<string-array name="countries_array">
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+    </string-array>
+    
+    <string-array name="tag_array">
+        <item >Tag</item>
+        <item>Business</item>
+        <item>Education</item>
+        <item>Recreation</item>
+        <item>Sport</item>
+        <item>Health</item>
+    </string-array>	
+    
+</resources>
